@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Deepfake Detection</title>
+    <style>
+        body {
+            {% if background_image %}
+                background-image: url("{{ background_image }}");
+            {% else %}
+                background-color: #f1f1f1;
+            {% endif %}
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            /* background-color: #7B68EE; */
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header ul li {
+            margin-left: 10px;
+        }
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .fake-result {
+            color: red;
+        }
+        .real-result {
+            color: green;
+        }
+        .file-label {
+            font-size: 16px;
+            text-align: center;
+        }
+        .loader {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .loader img {
+            width: 30px;
+            height: 30px;
+        }
+        footer {
+            /* background-color: #7B68EE; */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IMAGE DEEPFAKE DETECTION</h1>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </header>
+<div class="container">
+    <h2>Upload image files:</h2>
+    <form id="upload_form" action="/model.html" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image_files[]" id="image_files" accept="image/*" multiple required>
+        <br><br>
+        <div id="loader" class="loader" style="display: none;">
+            <img src="/static/loader.gif" alt="Loading...">
+        </div>
+        <input type="submit" id="submit_btn" value="Submit" onclick="showLoader()">
+    </form>
+    <div id="image_container"></div>
+    {% for file_label, result_label in results %}
+    <div class="result">
+        <p class="file-label">{{ file_label }}</p>
+        <p>
+            <span class="black-text">{{ result_label }}</span>
+        </p>
+    </div>
+    {% endfor %}
+</div>
+    <footer>
+        &copy; 2024 Final project. Please feel free to contact us with any inquiries you may have.
+    </footer>
+    <script>
+        const imageFileInput = document.getElementById('image_files');
+            const imageContainer = document.getElementById('image_container');
+            const uploadForm = document.getElementById('upload_form');
+            const submitBtn = document.getElementById('submit_btn');
+            const loader = document.getElementById('loader');
+            imageFileInput.addEventListener('change', function (event) {
+                const files = event.target.files;
+                imageContainer.innerHTML = '';
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileURL = URL.createObjectURL(file);
+                    const imageElement = document.createElement('img');
+                    imageElement.src = fileURL;
+                    imageElement.style.maxWidth = '100%';
+                    imageContainer.appendChild(imageElement);
+                }
+                const resultElement = document.querySelector('.result');
+                if (resultElement) {
+                    resultElement.remove();
+                }
+            });
+            uploadForm.addEventListener('submit', function () {
+                loader.style.display = 'block';
+                submitBtn.disabled = true;
+            });
+    </script>
+</body>
+</html>
