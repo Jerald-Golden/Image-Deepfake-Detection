@@ -21,7 +21,7 @@ Image Deepfake Detection is a robust web application designed to detect manipula
 
 ## Contributing
 
-Contributions to improve the application are encouraged.
+Contributions to improve the application are encouraged. Feel free to submit pull requests or open issues in the GitHub repository to address any issues or suggest enhancements.
 
 ## Disclaimer
 
