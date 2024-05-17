@@ -27,6 +27,4 @@ Contributions to improve the application are encouraged. Feel free to submit pul
 
 This project is developed for educational and research purposes and should not be solely relied upon for critical applications. While efforts have been made to provide accurate results, the system may have limitations and may not detect all deepfake images. It is recommended to employ multiple layers of verification for critical scenarios.
 
-## Help Enhance Accuracy
-
-Your contributions are valuable in enhancing the accuracy of this deepfake detection system. If you have additional deepfake image samples or expertise in deepfake detection, we welcome your collaboration to improve the effectiveness of the system. Please reach out to us to contribute to this ongoing effort at [jeraldgolden00@gmail.com].
+For inquiries, please contact [jeraldgolden00@gmail.com].
