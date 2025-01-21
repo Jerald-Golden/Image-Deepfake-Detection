@@ -4,20 +4,16 @@ Image Deepfake Detection is a robust web application designed to detect manipula
 
 ## Features
 
-- **User Authentication:** Secure registration and login system for users.
 - **Image Upload:** Users can upload images for analysis.
 - **CNN Analysis:** Utilizes a pre-trained CNN model to analyze uploaded images.
-- **Comparison:** Compares extracted features with a curated dataset.
 - **Classification:** Determines whether the uploaded image is genuine or a deepfake.
-- **Result Visualization:** Provides clear visual representation of the analysis results.
 
 ## Usage
 
-1. **Login:** Log in with Goolge Oauth.
-2. **Upload Image:** Select an image file to upload for analysis.
-3. **Analysis:** Wait for the system to complete the analysis process.
-4. **View Result:** See the classification result indicating whether the uploaded image is genuine or a deepfake.
-5. **Repeat:** Continue analyzing additional images as needed.
+1. **Upload Image:** Select an image file to upload for analysis.
+2. **Analysis:** Wait for the system to complete the analysis process.
+3. **View Result:** See the classification result indicating whether the uploaded image is genuine or a deepfake.
+4. **Repeat:** Continue analyzing additional images as needed.
 
 ## Contributing
 
